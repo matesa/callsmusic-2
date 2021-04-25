@@ -23,24 +23,53 @@ from ..helpers.filters import other_filters2
 @Client.on_message(other_filters2)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""I am an open-source @CallsMusic bot, I let you play music in your group’s voice chat.
-
-The commands I currently support are:
-
-/play - play the replied audio file or YouTube video
-/pause - pause the audio stream
-/resume - resume the audio stream
-/skip - skip the current audio stream
-/stop - clear the queue and remove the userbot from the call
-        """,
+        f"""<b>Merhaba🥳 {message.from_user.first_name}!
+Ben GoodVibes🎧 Bot, Telegram gruplarınızda müzik çalmanıza izin veren bir botum. 
+Sahibim @Poyraz2103 
+Hakkımda daha fazla şey öğrenmek için aşağıdaki düğmeleri kullanın.
+ </b>""",
+      
+       
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Group", url="https://t.me/callsmusicchat"
+                        "Komutlar", url="https://t.me/Fmsarkilar",
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "👥 Grup", url="https://t.me/Fmsarkilar"
                     ),
                     InlineKeyboardButton(
-                        "Channel", url="https://t.me/callsmusic"
+                      "📢Support Kanal", url="https://t.me/Fmsarkilar"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "👥Support Grup", url="https://t.me/Fmsarkilar"
+                    )
+                ]
+            ]
+        )
+    )
+
+@Client.on_message(
+    filters.command("start")
+    & filters.group
+    & ~ filters.edited
+)
+async def start(client: Client, message: Message):
+    await message.reply_text(
+        "💻 YouTube videosu aramak istiyor musunuz??",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "✅ Evet", switch_inline_query_current_chat=""
+                    ),
+                    InlineKeyboardButton(
+                        "Hayır ❌", callback_data="close"
                     )
                 ]
             ]
