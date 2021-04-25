@@ -1,4 +1,4 @@
-# 🎧 Calls Music 2 — The first open-source project based on [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
+# 🎧 GoodVibes 2 — The first open-source project based on [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 
 ## ✍️ Requirements
 
